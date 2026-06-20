@@ -4,8 +4,11 @@ Este repositorio contiene la implementación del modelo de Programación Lineal 
 
 ## Estructura del Proyecto
 
-* **`generador_instancias.py`**: Automatiza la creación de las 15 instancias de prueba (Pequeñas, Medianas y Grandes) en formato JSON. Incorpora la semilla estática (`random.seed(42)`) para replicabilidad y el filtro del peor escenario de capacidad para el límite $P$.
-* **`solver_gurobi.py`**: Script principal que interactúa con **Gurobi Optimizer** vía `gurobipy`. Lee de forma secuencial la carpeta de instancias, construye las restricciones del modelo matemático e imprime la tabla consolidada con variables, restricciones, iteraciones Símplex, nodos de Branch-and-Bound y costos óptimos ($Z$).
+* **`generador_instancias.py`**: Automatiza la creación de las instancias de prueba. Incorpora la semilla estática (`random.seed(42)`) para replicabilidad y un filtro del "peor escenario" para validar la factibilidad matemática del límite $P$.
+* **`mis_instancias/`**: Directorio que contiene las 15 instancias generadas (5 Pequeñas, 5 Medianas y 5 Grandes) en formato `.json`, listas para ser consumidas por el modelo.
+* **`solver_gurobi.py`**: Script principal que interactúa con **Gurobi Optimizer** vía `gurobipy`. Lee de forma secuencial la carpeta `mis_instancias/`, construye las restricciones y resuelve los modelos, imprimiendo la tabla consolidada de resultados.
+* **`hacer_graficos.py`**: Rutina auxiliar en Python que procesa las métricas de la terminal utilizando `matplotlib` para generar visualizaciones.
+* **`grafico_tiempo.png` y `grafico_costos.png`**: Gráficos resultantes utilizados en el informe final y la presentación.
 
 
 ## Requisitos e Instalación
